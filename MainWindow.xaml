@@ -1,0 +1,24 @@
+﻿<Window x:Class="Labs.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Labs"
+        xmlns:tabs="clr-namespace:Labs.Tabs"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Вкладка 1">
+                <TabItem.Content>
+                    <tabs:Lab1/>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem Header="Вкладка 2">
+                <TabItem.Content>
+                    <tabs:Lab2/>
+                </TabItem.Content>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
