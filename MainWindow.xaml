@@ -24,6 +24,11 @@
                     <tabs:Lab5/>
                 </TabItem.Content>
             </TabItem>
+            <TabItem Header="Вкладка 6.1">
+                <TabItem.Content>
+                    <tabs:Lab61/>
+                </TabItem.Content>
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>
