@@ -55,7 +55,7 @@ namespace Labs.Tabs
             get => _pValue; set
             {
                 _pValue = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("PValue"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("YValue"));
             }
         }
 
@@ -64,6 +64,17 @@ namespace Labs.Tabs
             _yValue = 10,
             _zValue = 10;
 
+
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+
+        public Lab3()
+        {
+            InitializeComponent();
+            this.DataContext = this;
+            CalculateP();
+        }
         private void TextBox_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
@@ -72,19 +83,8 @@ namespace Labs.Tabs
                 Keyboard.Focus(tt.FirstOrDefault(t => t != sender));
             }
         }
-
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
         {
-            CalculateP();
-        }
-
-        public Lab3()
-        {
-            InitializeComponent();
-            this.DataContext = this;
             CalculateP();
         }
 
@@ -111,7 +111,7 @@ namespace Labs.Tabs
         private void CalculateP()
         {
             PValue = Math.Abs(Math.Min(GetXFunction(), YValue) - Math.Max(YValue, ZValue)) / 2;
-            Debug.WriteLine($"XValue: {XValue}\nYValue: {YValue}\nZValue: {ZValue}\nFValue: {PValue}\n");
+            Debug.WriteLine($"X0Value: {XValue}\nYValue: {YValue}\nZValue: {ZValue}\nFValue: {PValue}\n");
         }
 
 

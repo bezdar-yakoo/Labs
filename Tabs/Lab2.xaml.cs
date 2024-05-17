@@ -55,7 +55,7 @@ namespace Labs.Tabs
             get => _fValue; set
             {
                 _fValue = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("PValue"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("YValue"));
             }
         }
 
@@ -86,7 +86,7 @@ namespace Labs.Tabs
         private void CalculateF()
         {
             FValue =  (Math.Pow((YValue + Math.Pow(XValue - 1, 1 / 3)), 1 / 4)) /  (Math.Abs(XValue - YValue) * (Math.Pow(Math.Sin(ZValue), 2) + Math.Tan(ZValue)));
-            Debug.WriteLine($"XValue: {XValue}\nYValue: {YValue}\nZValue: {ZValue}\nFValue: {FValue}\n");
+            Debug.WriteLine($"X0Value: {XValue}\nYValue: {YValue}\nZValue: {ZValue}\nFValue: {FValue}\n");
         }
 
 
