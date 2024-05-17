@@ -19,6 +19,11 @@
                     <tabs:Lab2/>
                 </TabItem.Content>
             </TabItem>
+            <TabItem Header="Вкладка 3">
+                <TabItem.Content>
+                    <tabs:Lab3/>
+                </TabItem.Content>
+            </TabItem>
             <TabItem Header="Вкладка 5">
                 <TabItem.Content>
                     <tabs:Lab5/>

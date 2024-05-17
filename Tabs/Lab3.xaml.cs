@@ -22,14 +22,14 @@ namespace Labs.Tabs
     /// <summary>
     /// Логика взаимодействия для Lab2.xaml
     /// </summary>
-    public partial class Lab2 : UserControl, INotifyPropertyChanged
+    public partial class Lab3 : UserControl, INotifyPropertyChanged
     {
         public double XValue
         {
             get => _xValue; set
             {
                 _xValue = value;
-                CalculateF();
+                CalculateP();
             }
         }
         public double YValue
@@ -37,7 +37,7 @@ namespace Labs.Tabs
             get => _yValue; set
             {
                 _yValue = value;
-                CalculateF();
+                CalculateP();
             }
         }
         public double ZValue
@@ -45,24 +45,24 @@ namespace Labs.Tabs
             get => _zValue; set
             {
                 _zValue = value;
-                CalculateF();
+                CalculateP();
             }
         }
 
 
-        public double FValue
+        public double PValue
         {
-            get => _fValue; set
+            get => _pValue; set
             {
-                _fValue = value;
+                _pValue = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("PValue"));
             }
         }
 
-        private double _fValue,
-            _xValue = 17.421,
-            _yValue = 0.010365,
-            _zValue = 82800;
+        private double _pValue,
+            _xValue = 10,
+            _yValue = 10,
+            _zValue = 10;
 
         private void TextBox_PreviewKeyDown(object sender, KeyEventArgs e)
         {
@@ -76,17 +76,42 @@ namespace Labs.Tabs
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public Lab2()
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            CalculateP();
+        }
+
+        public Lab3()
         {
             InitializeComponent();
             this.DataContext = this;
-            CalculateF();
+            CalculateP();
         }
 
-        private void CalculateF()
+        private double GetXFunction()
         {
-            FValue =  (Math.Pow((YValue + Math.Pow(XValue - 1, 1 / 3)), 1 / 4)) /  (Math.Abs(XValue - YValue) * (Math.Pow(Math.Sin(ZValue), 2) + Math.Tan(ZValue)));
-            Debug.WriteLine($"XValue: {XValue}\nYValue: {YValue}\nZValue: {ZValue}\nFValue: {FValue}\n");
+
+            var radioButtons = App.FindVisualChildren<RadioButton>(radioButtonsGroup);
+            var function = radioButtons.First(t => t.IsChecked == true).Content.ToString();
+
+            switch (function)
+            {
+                case "Sin(x)": 
+                    return Math.Sin(XValue);
+                case "Cos(x)": 
+                    return Math.Cos(XValue);
+                case "Tan(x)": 
+                    return Math.Tan(XValue);
+                default:
+                    return XValue;
+            }
+            
+        }
+
+        private void CalculateP()
+        {
+            PValue = Math.Abs(Math.Min(GetXFunction(), YValue) - Math.Max(YValue, ZValue)) / 2;
+            Debug.WriteLine($"XValue: {XValue}\nYValue: {YValue}\nZValue: {ZValue}\nFValue: {PValue}\n");
         }
 
 
