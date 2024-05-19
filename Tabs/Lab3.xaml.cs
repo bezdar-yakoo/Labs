@@ -55,7 +55,7 @@ namespace Labs.Tabs
             get => _pValue; set
             {
                 _pValue = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("YValue"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("PValue"));
             }
         }
 

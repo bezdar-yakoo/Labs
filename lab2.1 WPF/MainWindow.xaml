@@ -1,0 +1,116 @@
+﻿<Window x:Class="lab2._1_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab2._1_WPF"
+        mc:Ignorable="d"
+        Title="lab2.1 OOP Серегина А.В." Height="450" Width="800">
+
+    <ScrollViewer>
+        <Grid>
+            <Grid.RowDefinitions >
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Menu Grid.Row="0" x:Name="MainMenu" Height="25" 
+            VerticalAlignment="Top" Width="auto" Margin="0,0,0,0" 
+            VerticalContentAlignment="Center" >
+                <MenuItem Header="File" 
+                    HorizontalAlignment="Center" VerticalAlignment="Center" 
+                    HorizontalContentAlignment="Center">
+                    <MenuItem Click="NewClick" Header="New..."/>
+                    <MenuItem  Click="ExitClick" Header="Exit"/>
+                </MenuItem>
+                <MenuItem Header="Service" 
+                    HorizontalAlignment="Center" VerticalAlignment="Center" 
+                    HorizontalContentAlignment="Center">
+                    <MenuItem Click="ConnectClick" Header="Connect to service"/>
+                    <MenuItem Click="LeaveClick" Header="Leave a complaint"/>
+                </MenuItem>
+                <MenuItem Header="Help" 
+                    HorizontalAlignment="Center" VerticalAlignment="Center" 
+                    HorizontalContentAlignment="Center">
+                    <MenuItem Click="OpenHelpClick" Header="Open help"/>
+                    <MenuItem Click="OpenAuthorClick" Header="Open author page"/>
+                    <MenuItem Click="AboutClick" Header="About..."/>
+                </MenuItem>
+                <MenuItem Header="Memes" HorizontalAlignment="Center" VerticalAlignment="Center" 
+HorizontalContentAlignment="Center">
+                    <MenuItem Click="ChangeColorClick" Header="ChangeColor"/>
+                    <MenuItem Click="OpenCalcClick" Header="Open Calc"/>
+                    <MenuItem Click="BeepClick" Header="Beep"/>
+                </MenuItem>
+            </Menu>
+
+            <Grid Grid.Row="1" Margin="5">
+                <StackPanel>
+                    <Label FontWeight="Bold" FontSize="24" HorizontalAlignment="Center">Анкета для сбора идей и предложений</Label>
+
+                    <Label FontStyle="Italic" >Название идеи:</Label>
+                    <TextBox/>
+                    <Label Margin="0" Padding="0" FontSize="8" Foreground="Gray">Введите название проблемы. Старайтесь вводить название так, как люди смогут его понять</Label>
+
+                    <Separator/>
+
+                    <Label FontStyle="Italic" >Проблема:</Label>
+                    <TextBox Height="40" TextWrapping="Wrap" AcceptsReturn="True"/>
+                    <Label Margin="0" Padding="0" FontSize="8" Foreground="Gray">Опишите проблему, которую решает Ваша идея</Label>
+
+                    <Separator/>
+
+                    <Label FontStyle="Italic">Ожидаемый результат:</Label>
+                    <TextBox/>
+                    <Label Margin="0" Padding="0" FontSize="8" Foreground="Gray">Опишите ожидаемый результат после внедрения</Label>
+
+                    <Separator/>
+
+                    <Label FontStyle="Italic">Дополнительный комментарий:</Label>
+                    <TextBox/>
+                    <Label Margin="0" Padding="0" FontSize="8" Foreground="Gray">Укажите любые дополнительные комментарии</Label>
+
+                    <Separator/>
+
+                    <Label FontSize="20" HorizontalAlignment="Center">Предворительная оценка идеи</Label>
+
+                    <Grid >
+                        <Grid.ColumnDefinitions >
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <Label Grid.Row="0" Grid.Column="0">Пригодность</Label>
+                        <Label Grid.Row="0" Grid.Column="1">Реализуемость</Label>
+                        <Label Grid.Row="0" Grid.Column="2">Доходность</Label>
+
+                        <ComboBox  Grid.Row="1" Grid.Column="0">
+                            <ComboBoxItem>Высокая</ComboBoxItem>
+                            <ComboBoxItem>Средняя</ComboBoxItem>
+                            <ComboBoxItem>Низкая</ComboBoxItem>
+                        </ComboBox>
+
+                        <StackPanel   Grid.Row="1" Grid.Column="1">
+                            <RadioButton>Легкая</RadioButton>
+                            <RadioButton>Сложная</RadioButton>
+                            <RadioButton>Тяжелая</RadioButton>
+                            <RadioButton>Не могу посчитать :(</RadioButton>
+                        </StackPanel>
+
+                        <StackPanel  Grid.Row="1" Grid.Column="2">
+                            <CheckBox>Снижает затраты компании</CheckBox>
+                            <CheckBox>Увеличивает эффективность команд</CheckBox>
+                            <CheckBox>Ускоряет работу</CheckBox>
+                            <CheckBox>повышает комфорт</CheckBox>
+                        </StackPanel>
+                    </Grid>
+
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
+</Window>
